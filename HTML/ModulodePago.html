@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Baseball</title>
+    <!TITULO DE LA PAGINA>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="css/Estilos.css" />
+    <link rel="stylesheet" href="css/pay.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="shortcout icon" href="img/Baseball.svg.png" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="js/TarjetaPago.js"></script>
+    <script src="js/cookie.js"></script>
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet" />
+    <! RECURSOS >
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="logo-container column column--50">
+                <h1 class="logo">Champions Béisbol Club</h1>
+                <! TITULO PRINCIPAL>
+            </div>
+            <div class="main-header__contactInfo column column--50">
+                <p class="main-header__contactInfo__Phone">
+                    <span class="icon-phone"> 318-221-9490</span>
+                    <!AGREGAMOS ICONO>
+                </p>
+                <p class="main-header__contactInfo__Address">
+                    <span class="icon-map"> Dg 82g #75-29 - Colombia, Bogota D.C </span>
+                    <!AGREGAMOS ICONO>
+                </p>
+                <!PARRAFO>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container container--flex">
+            <span class="icon-menu" id="btnmenu"></span> <!AGREGAMOS ICONO>
+             <ul class="menu" id="menu"> <!CONTENIDO DEL MENU>
+                <li class="menu__item"><a href="/player" class="menu__link ">Inicio</a></li>
+                <li class="menu__item"><a href="/pay" class="menu__link menu__link--select">Pago</a></li>
+
+            </ul>
+            <div class="form-group">
+                            <div class="col-md-12 text-center">
+                              <button id="cerrarsesion" onclick="location.href='/login'" class="btn btn-primary btn-lg" name="cerrarsesion">cerrar sesion</button>
+                            </div>
+                        </div>
+       </div>
+    </nav>
+    
+    <section class="banner">
+        <img src="img/credicard.jpg" alt="" class="banner__img">
+    </section>
+
+
+    <main class="main">
+        <div class="container py-5">
+            <!-- For demo purpose -->
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4">Modulo de Pago</h1>
+                    <p class="lead mb-0">
+                        Realiza el pago de la mensualidad
+                    </p>
+                </div>
+            </div>
+            <!-- End -->
+
+            <div class="row">
+                <div class="col-lg-7 mx-auto">
+                    <div class="bg-white rounded-lg shadow-sm p-5">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+                            <li class="nav-item">
+                                <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill" style="background-color:black;">
+                                    <i class="fa fa-credit-card"></i> Tarjeta de Credito
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- End -->
+
+                        <!-- Credit card form content -->
+                        <form id="form31">
+                            <div class="tab-content">
+                                <!-- credit card info-->
+                                <div id="nav-tab-card" class="tab-pane fade show active">
+                                    <p id="comfirmpay" class="alert alert-success  comfirmpay" style="background-color: #0b6bd3; color: white;">
+                                        Texto de Exito o Error
+                                    </p>
+                                    <div class="form-group">
+                                        <label for="fullnamecard">Nombre Completo (en la Tarjeta)</label
+                    >
+                    <input
+                      type="text"
+                      name="fullnamecard"
+                      id="fullnamecard"
+                      placeholder="Nombre Completo"
+                      required
+                      class="form-control"
+                    />
+                  </div>
+                 
+                    <div class="form-group">
+                      <label for="address">Direccion de Residencia</label>
+                                        <input id="address" type="text" name="address" placeholder="Direccion" required class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="money">Monto a Pagar</label>
+                                        <input id="money" type="text" name="money" placeholder="$$$$$$$$$$$$" required class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardnumber">Numero de la Tarjeta</label>
+                                        <div class="input-group">
+                                            <input id="cardnumber" type="text" name="cardnumber" placeholder="Numero de la Tarjeta" class="form-control" required />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text text-muted">
+                            <i class="fa fa-cc-visa mx-1"></i>
+                            <i class="fa fa-cc-amex mx-1"></i>
+                            <i class="fa fa-cc-mastercard mx-1"></i>
+                          </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <label><span class="hidden-xs"
+                              >Fecha de Vencimiento</span
+                            ></label
+                          >
+                          <div class="input-group">
+                            <input
+                              type="number"
+                              placeholder="MM"
+                              id="month"
+                              name="month"
+                              class="form-control"
+                              required
+                            />
+                            <input
+                              type="number"
+                              placeholder="YY"
+                              id="year"
+                              name="year"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group mb-4">
+                          <label
+                          for="codeccv"
+                            data-toggle="tooltip"
+                            title="Three-digits code on the back of your card"
+                            >CSV
+                            <i class="fa fa-question-circle"></i>
+                          </label>
+                                                <input id="codeccv" name="codeccv" type="text" required class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="submit" name="submit" id="submit" style="background-color: black;border: black;" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm" value="Comfirmar Pago" />
+                        </form>
+                        </div>
+                        <!-- End -->
+                        </div>
+                        <!-- End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container container--flex">
+            <div class="colum column--33">
+                <h2 class="column__title">¿Porque debes vincularte con nosotros ?</h2>
+                <p class="column__txt">
+                    Esta academia busca formar lideres en este deportes con el fin de apoyar a los equipos a crecer y ganar reconocimiento.
+                </p>
+            </div>
+            <div class="colum column--33">
+                <h2 class="column__title">Contactanos</h2>
+                <p class="column__txt">Direccion: Dg 82g #75-29</p>
+                <p class="column__txt">Telefono: 3182219490</p>
+                <p class="column__txt">Correo: jruedar1@ucentral.edu.co</p>
+            </div>
+            <div class="colum column--33">
+                <h2 class="column__title">Siguenos en nuestras redes</h2>
+                <p class="column__txt">
+                    <a class="icon-facebook"> Siguenos en Facebook</a>
+                </p>
+                <p class="column__txt">
+                    <a class="icon-twitter"> Siguenos en Twitter</a>
+                </p>
+                <p class="column__txt">
+                    <a class="icon-instagram"> Siguenos en Instagram</a>
+                </p>
+            </div>
+            <p class="copy">
+                © 2019 Academia de Baseball | Todos los derechos reservados
+            </p>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <!LEE EL SCRIPT QUE SE REALIZO Y SU UBICACION>
+    <script>
+        var userInputForm = $('#form31')
+        $.ajax({
+            url: "/pay/",
+            type: "POST",
+            data: userInputForm,
+            dataType: "text",
+            success: function(response, status, http) {
+                if (response) {
+                    alert('Pago Exitoso');
+                    $("#comfirmpay").text('Exito');
+                    $('.comfirmpay').css('background', 'green');
+                } else {
+                    alert('Por favor validar los campos');
+                }
+            }
+        });
+
+
+        $(document).ready(function() {
+
+            $("form31").on("submit", function(e) {
+                e.preventDefault();
+                var data = {};
+                data.fullnamecard = $("#fullnamecard").val();
+                data.address = $("#address").val();
+                data.money = $("#money").val();
+                data.cardnumber = $("#cardnumber").val();
+                data.month = $("#month").val();
+                data.year = $("#year").val();
+                data.codeccv = $("#codeccv").val();
+                data.email = getCookies("_username");
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: '/pay/',
+                    success: function(data) {
+                        console.log(data);
+                        if (data.status == 200) {
+                            alert('Ingreso exitoso' + data.status);
+                            location.href = "/pay"
+                        } else {
+                            alert('Error al ingresar ' + data.status);
+                        }
+                    },
+                    error: function(data) {
+                        alert("error al ingresar");
+                    }
+
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

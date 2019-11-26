@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Modulo de Administracion</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
+    <script src="js/popupscript.js"></script>
+    <link rel="shortcout icon" href="img/Baseball.svg.png">
+    <link rel="stylesheet" href="css/estilosadmin.css">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.button-left').click(function() {
+                $('.sidebar').toggleClass('fliph');
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+            <div class="float-left"> <a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a> </div>
+            <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown notifications-menu">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-warning bg-warning">10</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul class="dropdown-menu-over list-unstyled">
+                                <li class="header-ul text-center">Tienes 10 notificaciones</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu list-unstyled">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 Usuarios se han unido ayer
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-yellow"></i> Se han reportado errores
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-red"></i> 12 mienbros se han unido
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart text-green"></i> 25 Pagos realizados
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer-ul text-center"><a href="#">View all</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown  user-menu">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="img/Baseball.svg.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs">Modulo de Administración Club Champions </span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Nombre de Usuario</a>
+                            <a class="dropdown-item" href="#">Email</a>
+                            <a class="dropdown-item" href="#">Nombre</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--Aqui-->
+    <div style="margin-top:-19px;" class="main">
+        <aside>
+            <div class="sidebar left ">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="img/Baseball.svg.png" class="rounded-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>Administrador</p>
+                        <a href="#"><i class="fa fa-user secret text-success"></i>   Administracion</a>
+                    </div>
+                </div>
+                <ul class="list-sidebar bg-defoult">
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Horarios </span> <span class="fa fa-chevron-left pull-right"></span> </a>
+                        <ul class="sub-menu collapse" id="dashboard">
+                            <li class="active"><a href="#">Estudiantes</a></li>
+                            <li><a href="#">Entrenadores</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active"><i class="fa fa-table"></i> <span class="nav-label">Lista de Usuarios</span><span class="fa fa-chevron-left pull-right"></span></a>
+                        <ul class="sub-menu collapse" id="tables">
+                            <li><a href=""> Mostrar</a></li>
+                            <li><a href=""> Eliminar</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Registros de Compras</span></a> </li>
+                    <li> <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Otras Funciones</span></a> </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <!--  -------------------------------------------------------------->
+    <div id="popup_content_wrap" style='display:none'>
+        <div id="popup_content">
+            <center>
+                <h1 class="titulo_popup">Bienvenido Administrador</h1>
+                <hr style="color: white;">
+                <hr>
+                <ul style="justify-content: center;text-align: center;">
+                    <li class="item_paragraph">
+                        <p class="paragraph">Gestión de Horarios</p>
+                    </li>
+                    <li class="item_paragraph">
+                        <p class="paragraph">Gestion de Usuario</p>
+                    </li>
+                    <li class="item_paragraph">
+                        <p class="paragraph">Configuraciones</p>
+                    </li>
+                    <li class="item_paragraph">
+                        <p class=" paragraph ">Registro de Compra</p>
+                    </li>
+                </ul>
+
+                <input style="background-color: white;border: white;color: black;" type="submit " name="submit " value="Continuar " class="btn btn-primary " onClick="popup_content( 'hide') " />
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>

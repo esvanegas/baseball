@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:400,700|Oswald:400,700');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #1E90FF;
+    border-radius: 10px;
+    height: 5px;
+    background-color: #CCCCCC;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 5px;
+    background-color: #000;
+    background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+}
+
+
+/*--------------------Estilos base-------------------*/
+
+img {
+    /*ACOPLAMIENTO DE LAS IMAGENES*/
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*MARGEN PARA LOS TITULOS*/
+    margin: 0;
+}
+
+.container {
+    /*ACOMODO LOS CONTENEDORES DE TEXTO*/
+    width: 100%;
+    margin: auto;
+}
+
+.container--flex {
+    /*DIVICION DE LOS CONTENEDORES FLEX*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+    max-width: 60%;
+    
+}
+
+.column {
+    width: 100%;
+}
+
+
+/*--------------------Estilos del header-------------------*/
+
+.main-header {
+    width: 100%;
+}
+
+.logo {
+    /*ESPECIFICACION DEL TAMAÑO COLOR ETC.. DEL TITULO PRINCIPAL*/
+    font-size: 1.6em;
+    color: white;
+    padding: 10PX;
+    font-family: 'Lora', serif;
+    /*FUENTE PARA EL TITULO*/
+    font-weight: 100;
+    background: #000;
+    text-align: center;
+}
+
+.main-header__contactInfo__Phone {
+    /*PARTE VISUAL DEL TELEFONO*/
+    background: #1E90FF;
+    color: black;
+    margin: auto;
+    padding: 10px;
+}
+
+.main-header__contactInfo__Address {
+    /*PARTE VISUAL DE LA DIRECCION*/
+    background: #1E90FF;
+    color: black;
+    margin: auto;
+    padding: 10px;
+}
+
+.main-header [class*="icon-"]:before {
+    /*AJUSTE DE LOS ICONOS MAS ORGANIZADOS*/
+    position: relative;
+    top: 2px;
+    right: 5px;
+}
+
+
+/*--------------------Estilos del menu-------------------*/
+
+.main-nav {
+    /*AJUSTES AL BLOQUE DEL MENU*/
+    width: 100%;
+    position: relative;
+    z-index: 2000;
+    padding: 10px;
+}
+
+.icon-menu {
+    /*AJUSTES AL ICONO DEL MENU*/
+    display: block;
+    color: black;
+    font-size: 2em;
+    border: 2px solid black;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5;
+    background: white;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-icon [class*="icon-"] {
+    /*AJUSTE DE LOS ICONOS DE REDES SOCIALES */
+    color: black;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.social-icon__link {
+    /*ELIMINACION DEL SUBRAYADO DE LOS ICONOS DE REDES SOCIALES*/
+    text-decoration: none;
+}
+
+.menu {
+    /*AJUSTES VISUALES PARA EL MENU DE SELECCION*/
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: height .3s linear;
+    /*tiempo que dura en abrir el menu*/
+}
+
+.menu__link {
+    /*AJUSTE DE LAS OPCIONES*/
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    /*PERMITE QUE AL DESPLAZAR EL CURSOR SOBRE LAS OPCIONES SE VEA DIFERENTE*/
+    background: #1E90FF;
+}
+
+.menu__link--select {
+    /*MUESTRA EN QUE OPCION ESTA EN TIEMPO REAL*/
+    background: #1E90FF;
+}
+
+.mostrar {
+    /*FUNCION QUE DEFINE EL LARGO DEL MENU AL DESPLAZARSE*/
+    height: 300px;
+}
+
+
+/*--------------------Estilos del banner-------------------*/
+
+.banner {
+    /*AJUSTES DEL BANNER DE LA PAGINA*/
+    margin-top: -60px;
+    position: relative;
+}
+
+.banner:before {
+    /*AJUSTES DE LA IMAGEN Y SU TONALIDAD */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.51);
+    z-index: 1000;
+    top: 0;
+}
+
+.banner__img {
+    width: 800%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.banner__content {
+    /*AJUSTES DEL TEXTO QUE CONTIENE EL BANNER*/
+    width: 90%;
+    color: white;
+    text-align: center;
+    position: absolute;
+    z-index: 1500;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 1.4em;
+}
+
+
+/*--------------------Estilos Principales-------------------*/
+
+.group--color .container {
+    /*Diseño de la describcion*/
+    background: #1E90FF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.main__title {
+    margin: 15px;
+    font-size: 1.8em;
+    font-family: 'Lora', cursive;
+    font-weight: 100;
+}
+
+.column__title {
+    /*TODOS LOS TITULOS EN LAS COLUMNAS INFERIORES*/
+    font-size: 1em;
+}
+
+.main__abaut_description .column:nth-child(2) {
+    padding: 10px;
+}
+
+.btn {
+    /*BOTON CONTACT PARTE VISUAL*/
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    background: #1E90FF;
+    padding: 10px;
+    margin: 10px auto;
+    color: white;
+}
+
+#cursos{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    background: #1E90FF;
+    padding: 10px;
+    margin: 10px auto;
+    color: white;color: #fff;
+    background-color: #1E90FF;
+    border-color: #1E90FF;padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.group__title {
+    /*TITULO DE ADOPCIONES PARTE VISUAL*/
+    font-family: 'Lora', cursive;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.8em;
+    margin: 30px;
+}
+
+.today-special .column {
+    /*MARGEN DE ESPACIO*/
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.today-special__img {
+    /*ESPECIFICACION DEL MAXIMO DE LAS IMAGENES*/
+    margin: auto;
+    max-width: 350px;
+}
+
+.today-special__title {
+    font-family: 'Lora', cursive;
+    font-size: 1.3em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.today-special__price {
+    font-size: 1em;
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+
+/*--------------------Estilos del footer-------------------*/
+
+.main-footer {
+    /*PARTE FINAL DE LA PAGINA INFORMACION DE CONACTO*/
+    background: #222;
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: .8em;
+}
+
+.copy {
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.main-footer [class*="icon-"] {
+    /*AREGLO DE LOS ICONOS */
+    color: white;
+    text-decoration: none;
+}
+
+.main-footer [class*="icon-"]:before {
+    /*ACOMODACION DE LOS ICONOS Y ALINEACION*/
+    position: relative;
+    top: 3px;
+    right: 3px;
+}
+
+
+/*--------------------Estilos responsive-------------------*/
+
+
+/*ACOMODACION DE LA INFORMACION SUPERIOR DEPENDIENDO DEL TAMAÑO DE LA PAG CAMBIA*/
+
+@media screen and (min-width:480px) {
+    /*LIMITE*/
+    .logo {
+        color: white;
+        background: none;
+    }
+    .main-header__contactInfo {
+        text-align: right;
+    }
+    .main-header__contactInfo__Phone {
+        background: none;
+        color: white;
+    }
+    .main-header__contactInfo__Address {
+        color: white;
+        background: none;
+    }
+    .main-nav {
+        background: rgba(0, 0, 0, 0.85);
+    }
+    .banner {
+        margin-top: -645px;
+        z-index: -1000;
+    }
+    .banner__img {
+        height: 700px;
+    }
+    .banner__content {
+        font-size: 2em;
+    }
+    .column--50 {
+        width: 49%;
+    }
+    .column--50-25 {
+        width: 49%;
+    }
+    .column--33 {
+        width: 32%;
+    }
+    .main__about__description .column:nth-child(2) {
+        padding-left: 20px;
+        font-size: .9em;
+    }
+    .main__about__description .btn {
+        margin: 0;
+    }
+    .today-special .column {
+        border: 5px solid #1E90FF;
+        padding: 5px;
+    }
+    .today-special__img {
+        height: 200px;
+        object-fit: cover;
+    }
+    .main-footer .container--flex {
+        align-items: flex-start
+    }
+}
+
+@media screen and (min-width:768px) {
+    .logo {
+        font-size: 2.8em;
+        padding: 0;
+    }
+    .main__title {
+        font-size: 2.2em;
+    }
+    .main__about__descriotion {
+        margin-top: 30px;
+    }
+    .main__about__description .column--50:nth-child(2) {
+        font-size: 1em;
+    }
+    .main__about__description .column--50:nth-child(2) .column__txt {
+        line-height: 25px;
+    }
+    .column--50-25 {
+        width: 24.5%;
+    }
+    .column__title {
+        font-size: 1em;
+    }
+    .group__title {
+        font-size: 2.2em;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .container {
+        width: 1100px;
+    }
+    .logo {
+        font-size: 2em;
+        padding: 0;
+    }
+    .main-header__contactInfo__Phone,
+    .main-header__contactInfo__Address {
+        padding-right: 0;
+        font-size: 1.15em;
+    }
+    .main-nav {
+        padding: 0;
+    }
+    .banner__content {
+        font-size: 2.5em;
+    }
+    .icon-menu {
+        display: none;
+    }
+    .menu {
+        position: static;
+        display: flex;
+        height: auto;
+        width: auto;
+    }
+    .menu__link {
+        padding: 20px;
+    }
+    .group--color .container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+    .main__title {
+        font-size: 2.3em;
+    }
+    .main__about__description .column--50:nth-child(2) .column__txt {
+        line-height: 40px;
+    }
+    .today-special__title {
+        font-size: 1.4em;
+    }
+    .today-special__price {
+        font-size: 1em;
+    }
+    .main-footer {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .main__about__description .column:nth-child(1) img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+    .today-special__img {
+        height: 250px;
+    }
+}

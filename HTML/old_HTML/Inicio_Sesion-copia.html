@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball</title>
+    <!TITULO DE LA PAGINA>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/Estilos.css">
+    <link rel="stylesheet" href="css/sesion.css">
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet">
+    <! RECURSOS >
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script src="js/cookie.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="logo-container column column--50">
+                <h1 class="logo"> Champions Béisbol Club </h1>
+                <! TITULO PRINCIPAL>
+            </div>
+            <div class="main-header__contactInfo column column--50">
+                <p class="main-header__contactInfo__Phone">
+                    <span class="icon-phone"> 318-221-9490</span>
+                    <!AGREGAMOS ICONO>
+                </p>
+                <p class="main-header__contactInfo__Address">
+                    <span class="icon-map"> Dg 82g #75-29 - Colombia, Bogota D.C </span>
+                    <!AGREGAMOS ICONO>
+                </p>
+                <!PARRAFO>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container container--flex">
+            <span class="icon-menu" id="btnmenu"></span>
+            <!AGREGAMOS ICONO>
+            <ul class="menu" id="menu">
+                <!CONTENIDO DEL MENU>
+                <li class="menu__item"><a href="Index.html" class="menu__link ">Inicio</a></li>
+                <li class="menu__item"><a href="Razones.html" class="menu__link">Sobre Nosotros</a></li>
+                <li class="menu__item"><a href="/register" class="menu__link">Registrate</a></li>
+                <li class="menu__item"><a href="/login" class="menu__link menu__link--select">Inicio de sesion</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <section class="banner">
+        <img src="img/Registrate.jpg" alt="" class="banner__img">
+        <div class="banner__content">Ingresa</div>
+    </section>
+
+    <main class="main">
+
+        <div id="login">
+            <h3 class="text-center text-white pt-5">Formulario de ingreso</h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="/login" method="post">
+                                <h3 class="text-center text-info">Ingreso</h3>
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Correo:</label><br>
+                                    <input type="text" name="username" id="username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Contraseña:</label><br>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="remember-me" class="text-info"><span>Recuerdame</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                    <input onclick="saveCookies()" type="submit" name="submit" class="btn btn-info btn-md" value="Ingresar" id="submit">
+
+                                </div>
+                                <div id="register-link" class="text-right">
+                                    <a href="/register" class="text-info">Registrate aqui</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="main-footer">
+        <div class="container container--flex">
+            <div class="colum column--33">
+                <h2 class="column__title">¿Porque debes vincularte con nosotros ?</h2>
+                <p class="column__txt">Esta academia busca formar lideres en este deportes con el fin de apoyar a los equipos a crecer y ganar reconocimiento.</p>
+            </div>
+            <div class="colum column--33">
+                <h2 class="column__title">Contactanos</h2>
+                <p class="column__txt">Direccion: Dg 82g #75-29</p>
+                <p class="column__txt">Telefono: 3182219490</p>
+                <p class="column__txt">Correo: jruedar1@ucentral.edu.co</p>
+            </div>
+            <div class="colum column--33">
+                <h2 class="column__title">Siguenos en nuestras redes</h2>
+                <p class="column__txt"><a href="" class="icon-facebook"> Siguenos en Facebook</a></p>
+                <p class="column__txt"><a href="" class="icon-twitter"> Siguenos en Twitter</a></p>
+                <p class="column__txt"><a href="" class="icon-instagram"> Siguenos en Instagram</a></p>
+            </div>
+            <p class="copy"> © 2019 Academia de Baseball | Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <!LEE EL SCRIPT QUE SE REALIZO Y SU UBICACION>
+
+
+
+    <script src="js/menu.js"></script>
+    <!LEE EL SCRIPT QUE SE REALIZO Y SU UBICACION>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#login-form").on("submit", function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify($("#login-form").serialize()),
+                    contentType: 'application/json',
+                    url: '/login',
+                    success: function(data) {
+                        //console.log('success');
+                        alert(JSON.stringify(data));
+                    }
+                });
+            })
+        });
+        
+        
+
+        function validaForm() {
+            // Campos de texto
+            if ($("#username").val() == "") {
+                alert("El campo Nombre de usuario no puede estar vacio.");
+                $("#username").focus(); // Esta funciÃ³n coloca el foco de escritura del usuario en el campo Nombre directamente.
+                return false;
+            }
+            if ($("#password").val() == "") {
+                alert("El campo Contraseña no puede estar vaci­o.");
+                $("#password").focus();
+                return false;
+            }
+
+            return true; // Si todo estÃ¡ correcto
+        }
+
+
+        $(document).ready(function() { // Esta parte del cÃ³digo se ejecutarÃ¡ automÃ¡ticamente cuando la pÃ¡gina estÃ© lista.
+            $(".btn btn-info btn-md").click(function() { // Con esto establecemos la acciÃ³n por defecto de nuestro botÃ³n de enviar.
+                if (validaForm()) { // Primero validarÃ¡ el formulario.
+                    $.post("Registro", $("#formdata").serialize(), function(res) {
+                        $("#Formulario").fadeOut("slow"); // Hacemos desaparecer el div "formulario" con un efecto fadeOut lento.
+                        if (res == 1) {
+                            $("#exito").delay(500).fadeIn("slow"); // Si hemos tenido Ã©xito, hacemos aparecer el div "exito" con un efecto fadeIn lento tras un delay de 0,5 segundos.
+                        } else {
+                            $("#fracaso").delay(500).fadeIn("slow"); // Si no, lo mismo, pero haremos aparecer el div "fracaso"
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

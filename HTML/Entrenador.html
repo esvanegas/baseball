@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball</title> <!TITULO DE LA PAGINA> 
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/Estilos.css">
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet"> <! RECURSOS >
+</head>
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="logo-container column column--50">
+                <h1 class="logo"> Champions Béisbol Club </h1>
+                <h1 class="logo"> Rol: Entrenador</h1>  <! TITULO PRINCIPAL>
+            </div>
+            <div class="main-header__contactInfo column column--50">
+                <p class="main-header__contactInfo__Phone">
+                    <span class="icon-phone"> 318-221-9490</span> <!AGREGAMOS ICONO>
+                </p>
+                <p class="main-header__contactInfo__Address">
+                    <span class="icon-map"> Dg 82g #75-29 - Colombia, Bogota D.C </span> <!AGREGAMOS ICONO>
+                </p> <!PARRAFO>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container container--flex">
+            <span class="icon-menu" id="btnmenu"></span> <!AGREGAMOS ICONO>
+             <ul class="menu" id="menu"> <!CONTENIDO DEL MENU>
+                <li class="menu__item"><a href="/" class="menu__link menu__link--select">Inicio</a></li>
+            </ul>
+
+            
+            <div class="form-group">
+                            <div class="col-md-12 text-center">
+                              <button id="cerrarsesion" onclick="location.href='/login'"  class="btn btn-primary btn-lg" name="cerrarsesion">cerrar sesion</button>
+                            </div>
+                        </div>
+         </div>
+    </nav>
+    
+    <section class="banner">
+        <img src="img/EntrenadorBienvenida.jpg" alt="" class="banner__img">
+        <div class="banner__content">Guialos a la victoria!! </div>
+    </section>
+    
+    <main class="main">
+        <section class="group group--color">
+            <div class="container">
+                <h2 class="main__title">Ten presente las siguientes recomendaciones</h2> <!TITULO>
+                <p class="main--txt">Los siguientes tips son con el fin de que recuerdes el compromiso que tienes con nosotros, para que con tu ayuda formalicemos el futuro de nuestros estudiantes. 
+                </p> <!CONTENIDO>
+            </div>
+        </section> 
+        
+        <section class="group main__about__description">
+            <div class="container container--flex">
+                <div class="column column--50">
+                    <img src="img/entrenador1.jpg" alt="">
+                </div>
+                <div class="column column--50">
+                
+                    <p class="column__txt">Demuestra tu conocimiento y tu compromiso al equipo, deja en claro que estarás en todo su proceso de crecimiento y que puede contar contigo. 
+                    </p>
+                    
+            
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="group main__about__description">
+            <div class="container container--flex">
+                <div class="column column--50">
+                    <img src="img/entrenador2.jpg" alt="">
+                </div>
+                <div class="column column--50">
+                    <p class="column__txt">Demuestra confianza frente a tu equipo, si das una buena presentación de ti tu equipo seguirá hasta en los momentos más difíciles. 
+                    </p>
+                    
+            
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="group main__about__description">
+            <div class="container container--flex">
+                <div class="column column--50">
+                    <img src="img/entrenador3.jpg" alt="">
+                </div>
+                <div class="column column--50">
+                    <p class="column__txt">Formaliza tus ideas y has que se cumplan, transmite tu conocimiento a tus estudiantes, piensa cada dia como generar interes por el deporte para que tengan mas ganas de aprender y mejorar. 
+                    </p>
+                    
+            
+                </div>
+            </div>
+        </section>
+        
+        
+        
+    </main>
+    <footer class="main-footer">
+            <div class="container container--flex">
+                <div class="colum column--33">
+                    <h2 class="column__title">¿Porque debes vincularte con nosotros?</h2>
+                    <p class="column__txt">Esta academia busca formar líderes en este deporte con el fin de apoyar a los equipos a crecer y ganar reconocimiento.</p>
+                </div>
+                <div class="colum column--33">
+                    <h2 class="column__title">Contactanos</h2>
+                    <p class="column__txt">Direccion: Dg 82g #75-29</p>
+                    <p class="column__txt">Telefono: 3182219490</p>
+                    <p class="column__txt">Correo: jruedar1@ucentral.edu.co</p>
+                </div>
+                <div class="colum column--33">
+                    <h2 class="column__title">Siguenos en nuestras redes</h2>
+                    <p class="column__txt"><a  class="icon-facebook"> Siguenos en Facebook</a></p>
+                    <p class="column__txt"><a  class="icon-twitter"> Siguenos en Twitter</a></p>
+                    <p class="column__txt"><a  class="icon-instagram"> Siguenos en Instagram</a></p>
+                </div>
+                <p class="copy"> © 2019 Academia de Baseball | Todos los derechos reservados</p>
+            </div>
+        </footer>
+        <script src="js/menu.js"></script> <!LEE EL SCRIPT QUE SE REALIZO Y SU UBICACION>
+</body>
+</html>

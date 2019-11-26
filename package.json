@@ -1,0 +1,21 @@
+{
+  "name": "ing-software",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Esteban Vanegas, Javier Baron, Juan Riveros",
+  "license": "ISC",
+  "dependencies": {
+    "alert-node": "^2.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "forever": "^1.0.0",
+    "mongodb": "^2.2.33"
+  }
+}

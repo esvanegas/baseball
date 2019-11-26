@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<title> Modulo de Administracion</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+
+    <!-- If you use the default popups, use this. -->
+
+
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fresh-bootstrap-table.css" rel="stylesheet" />
+
+    <!-- Fonts and icons -->
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
+    <script src="js/popupscript.js"></script>
+    <link rel="shortcout icon" href="img/Baseball.svg.png">
+    <link rel="stylesheet" href="css/estilosadmin.css">
+    <link rel="stylesheet" href="css/admincss.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+    <script src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+    <script src="js/hidecontent.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <!--Date Picker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js\chanegeinput.js"></script>
+    <script src="js/check_button.js"></script>
+    <script>
+        $(function() {
+            var dateFormat = "mm/dd/yy",
+                from = $("#from")
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                })
+                .on("change", function() {
+                    to.datepicker("option", "minDate", getDate(this));
+                }),
+                to = $("#to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                })
+                .on("change", function() {
+                    from.datepicker("option", "maxDate", getDate(this));
+                });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+    </script>
+    <!--Date Picker-->
+    <script>
+        $(document).ready(function() {
+            $('.button-left').click(function() {
+                $('.sidebar').toggleClass('fliph');
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        function MM_showHideLayers() { //v9.0
+            var i, p, v, obj, args = MM_showHideLayers.arguments;
+            for (i = 0; i < (args.length - 2); i += 3)
+                with(document) if (getElementById && ((obj = getElementById(args[i])) != null)) {
+                    v = args[i + 2];
+                    if (obj.style) {
+                        obj = obj.style;
+                        v = (v == 'show') ? 'visible' : (v == 'hide') ? 'hidden' : v;
+                    }
+                    obj.visibility = v;
+                }
+        }
+    </script>
+
+    <script>
+        $(document).ready(() => {
+
+            $('#mostraruseres').click(() => {
+                $.ajax({
+                    url: '/admin',
+                    data: "",
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        for (var i = 0; i < data.json.length; i++) {
+                            $("#tableuser").append("<tr>" + "<td>" + data.json[i].name + "</td>" + "<td>" + data.json[i].gender + "</td>" + "<td>" + data.json[i].address + "</td>" + "<td>" + data.json[i].email + "</td>" + "<td>" + data.json[i].role + "</td>" + "</tr>");
+                        }
+                        var Table = document.getElementById("tableuser");
+                        var tablerow = Table.getElementsByTagName('tr');
+                        var rowcount = tablerow.length;
+                        var mensaje = document.getElementById("inbox");
+                        mensaje.innerHTML = "Cantidad de Clientes" + " " + i;
+                        if ((rowcount - 1) > i) {
+                            mensaje.innerHTML = "";
+                            console.log(rowcount);
+                            console.log("i", i);
+                            Table.innerHTML = " <thead><tr><th> Nombre </th> <th > Genero </th> <th> Dirección </th> <th > Email </th> <th> Rol </th></tr> </thead>";
+                        }
+                    }
+
+
+
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(() => {
+
+            $('#showlistpayment').click(() => {
+                $.ajax({
+                    url: '/admin',
+                    data: "",
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data) {
+                        var count = 0;
+                        console.log(data);
+                        var mensaje = document.getElementById("inbox");
+                        for (var i = 0; i < data.json.length; i++) {
+                            var datapayment = data.json[i].paymet_data;
+                            if (datapayment != undefined) {
+                                count++;
+                                mensaje.innerHTML = "Cantidad de Pagos realizados" + "" + count;
+                                $("#tablepayment").append("<tr>" + "<td>" + data.json[i].name + "</td>" + "<td>" + data.json[i].address + "</td>" + "<td>" + data.json[i].email + "</td>" + "<td>" + datapayment.card_name + "</td>" + "<td>" + datapayment.card_number + "</td>" + "<td>" + datapayment.ccv + "</td>" + "</tr>");
+                                console.log(datapayment.card_name);
+                            }
+
+                        }
+                        var Table = document.getElementById("tablepayment");
+                        var tablerow = Table.getElementsByTagName('tr');
+                        var rowcount = tablerow.length;
+                        if ((rowcount - 1) > count) {
+                            console.log(rowcount);
+                            console.log("coint", count);
+                            mensaje.innerHTML = ""
+                            Table.innerHTML = " <thead><tr><th> Nombre </th> <th > Dirección </th> <th> Email </th> <th > Nombre de la Tarjeta </th> <th> Numero de la Tarjeta </th> <th>Codigo CCV </th></tr> </thead>";
+                        }
+
+                    }
+
+
+
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(() => {
+
+            $('#coachs').click(() => {
+                $.ajax({
+                    url: '/admin',
+                    data: "",
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data) {
+                        var countrole = 0;
+                        var mensaje = document.getElementById("inbox");
+                        for (var i = 0; i < data.json.length; i++) {
+                            if (data.json[i].role == "Entrenador") {
+                                console.log("Dentro del If ", data.json[i].name);
+                                countrole = countrole + 1;
+                                mensaje.innerHTML = "cantidad de Entrenadores  " + countrole;
+                                $("#tableschedule_coach").append("<tr>" + "<td>" + data.json[i].name + "</td>" + "<td>" + data.json[i].gender + "</td>" + "<td>" + data.json[i].role + "</td>" + "<td>" + data.json[i].email + "</td>" + "<td>" + "<input type='checkbox' class='d-flex justify-content-center' id='check" + countrole + "'" +
+                                    " onclick=" + "status_change('check" + countrole + "')>" + "</td>" + "</tr>");
+                            }
+                        }
+                        var emailtraine_course = document.getElementById('emailformunic');
+                        console.log(emailtraine_course);
+                        var Table = document.getElementById("tableschedule_coach");
+                        var tablerow = Table.getElementsByTagName('tr');
+                        var rowcount = tablerow.length;
+                        console.log(rowcount, "rowcount");
+                        console.log(countrole, "countrole");
+                        if ((countrole + 1) < rowcount) {
+                            console.log("Mayor");
+                            mensaje.innerHTML = ""
+                            Table.innerHTML = " <thead><tr> <th>Nombre</th><th>Genero</th><th>Rol</th><th>Correo</th><th class='text-center'>Adicionar en el Horario</th></tr> </thead>";
+                        }
+
+
+                    }
+
+
+
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(() => {
+
+            $('#students').click(() => {
+                $.ajax({
+                    url: '/admin',
+                    data: "",
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data) {
+                        var countrole = 0;
+                        for (var i = 0; i < data.json.length; i++) {
+                            var datarole = data.json[i].role;
+                            if (datarole == "Jugador") {
+                                countrole++;
+                                $("#tableschedule_player").append("<tr>" + "<td>" + data.json[i].name + "</td>" + "<td>" + data.json[i].gender + "</td>" + "<td>" + data.json[i].role + "</td>" + "<td>" + "<input class='form-check-input' type='checkbox' id='stateshedule' value='option'>" + "</td>" + "</tr>");
+                            }
+                        }
+                        var Table = document.getElementById("tableschedule_player");
+                        var tablerow = Table.getElementsByTagName('tr');
+                        var rowcount = tablerow.length;
+                        var mensaje = document.getElementById("inbox");
+                        mensaje.innerHTML = "Cantidad de Jugadores" + " " + countrole;
+                        if ((rowcount - 1) > i) {
+                            mensaje.innerHTML = "";
+                            console.log(rowcount);
+                            console.log("i", i);
+                            Table.innerHTML = " <thead><tr><th> Nombre </th> <th > Genero </th> <th> Dirección </th> <th > Email </th> <th> Rol </th></tr> </thead>";
+                        }
+                    }
+
+
+
+                });
+            });
+        });
+    </script>
+
+    <script>
+        var userInputForm = $('#crearhorario.val()')
+        $.ajax({
+            url: "/admin-calendar ",
+            type: "POST ",
+            data: userInputForm,
+            dataType: "text ",
+            success: function(response, status, http) {
+                if (response) {
+                    alert('Registro exitoso');
+                } else {
+                    alert('Por favor validar los campos');
+                }
+            }
+        });
+    </script>
+
+
+</head>
+
+<body class="overhidden-x">
+
+    <header class="header">
+        <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style=" left: 100px;" class="float-right"> <a href="#" class="button-left"><span
+                        class="fa fa-fw fa-bars "></span></a> </div>
+            <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <div id="inbox"></div>
+                    </li>
+                    <li class="nav-item dropdown  user-menu">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="img/Baseball.svg.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs">Modulo de Administración Club Champions </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <div class="row">
+        <div class="col-2 " style="margin-top:-19px;">
+            <aside style="width:300px;">
+                <div class="sidebar left ">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="img/Baseball.svg.png" class="rounded-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                          
+                            <a><i class="secret text-success"></i>Administrador</a>
+                        </div>
+                    </div>
+                    <ul class="list-sidebar bg-defoult">
+                        <li>
+
+                            <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Horarios </span> <span class="fa fa-chevron-left pull-right"></span> </a>
+                            <ul class="sub-menu collapse" id="dashboard">
+                                <li><a id="coachs" href="#" onclick="createhide('schedule') ">Entrenadores</a></li>
+                            </ul>
+                        </li>
+
+                        <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active"><i
+                                    class="fa fa-table"></i> <span class="nav-label">Lista de Usuarios</span><span
+                                    class="fa fa-chevron-left pull-right"></span></a>
+                            <ul class="sub-menu collapse" id="tables">
+                                <li><a href="#" id="mostraruseres" onclick="createhide('customers')"> Mostar</a></li>
+                                <li><a href="">Eliminar</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active"><i
+                                    class="fa fa-shopping-cart"></i> <span class="nav-label">Registros de
+                                    Compras</span><span class="fa fa-chevron-left pull-right"></span></a>
+                            <ul class="sub-menu collapse" id="e-commerce">
+                                <li><a href="#" id="showlistpayment" onclick="createhide('register_Payment')">Mostrar</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#" data-toggle="collapse" data-target="#e-commerce" class="collapsed active"><i
+                                    class="fa fa-shopping-cart"></i> <span class="nav-label">Cerrar sesion</span><span class="fa fa-chevron-left pull-right" href="Index.html"></span></a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <main class="col-12 col-md-8 ">
+            <div id="status"></div>
+            <div class="container listcustomers" id="customers" style="display: none;">
+                <div class="row col-md-6 col-md-offset-2 custyle">
+                    <table id="tableuser" class="table table-striped custab">
+                        <thead>
+
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Genero</th>
+                                <th>Dirección</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                            </tr>
+                        </thead>
+
+
+                    </table>
+                </div>
+            </div>
+            <form id="formuser" name="Formulario col-12 col-md-8 " action="/register " style="display: none; " method="POST " onsubmit="return validar(); ">
+                <fieldset>
+                    <legend class="text-center header text-white ">Paso 1 : Diligenciar Datos Solicitados en el Formulario
+                    </legend>
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i
+                                class="fa fa-phone-square bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            Rol : <select name="Rol " id="Rol " required="required" class="custom-select">
+                                <option>-Seleccione-</option>
+                                <option>Entrenador</option>
+                                <option>Jugador</option>
+
+                            </select><br><br>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="Nombres " name="Nombres " id="Nombres " class="form-control " placeholder="Nombre Completo " required="required " />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="Fecha " name="Fecha " id="Fecha " class="form-control " placeholder="Fecha De Nacimiento DD/MM/AAAA " required="required " />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="RH " name="RH " id="RH " class="form-control " placeholder="RH " required="required " />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i
+                                class="fa fa-phone-square bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            Genero : <select name="Sexo " id="Sexo " required="required " class="custom-select">
+                                <option>-Seleccione-</option>
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+
+                            </select><br><br>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="Direccion " name="Direccion " id="Direccion " class="form-control " placeholder="Direccion " required="required " />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="telefono " name="telefono " id="telefono " class="form-control " placeholder="Celular " required="required " />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="text " name="Correo " id="Correo " class="form-control " placeholder="Correo " required="required " />
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group ">
+                        <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-user bigicon "></i></span>
+                        <div class="col-md-8 ">
+                            <input type="password " name="Contrasena " id="Contrasena " class="form-control " placeholder="Contraseña " required="required " />
+
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group ">
+                        <div class="col-md-12 text-center ">
+                            <button id="botoninicio " type="submit " class="btn btn-primary btn-lg " name="btnResultado ">Guardar</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+            <!--Tabla de Registro de Pago-->
+
+            <div id="register_Payment" style="display: none;">
+                <table id="tablepayment" class="table table-striped custab">
+                    <thead>
+
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Email</th>
+                            <th>Nombre de la Tarjeta</th>
+                            <th>Numero de la Tarjeta</th>
+                            <th>Codigo CCV</th>
+
+                        </tr>
+                    </thead>
+
+
+                </table>
+            </div>
+            <div id="schedule" style="display: none;">
+                <form class="well" id="crearhorario">
+                    <fieldset>
+                        <legend class="text-center header text-white ">Creacion de Entrenamientos
+                        </legend>
+                        <div class="form-group row justify-content-md-center">
+                            <label for="from" class="mr-1">Fecha de Inicio</label>
+                            <input type="text" id="from" name="start_date" class="form-control col-4 ml-5">
+                            <label for="to">Hasta</label>
+                            <input type="text" id="to" name="end_date" class="form-control col-4 ml-5 ">
+                        </div>
+                        <div class="form-group">
+                            <label for="start_hour" class="mx-2 ml-5">Hora de Inicio</label>
+                            <input type="time" name="start_hour" class="form-control" id="start_hour" placeholder="Example input">
+                        </div>
+                        <div class="form-group">
+                            <label for="end_hour">Hora de Finalización</label>
+                            <input type="time" class="form-control" name="end_hour" id="end_hour" placeholder="Example input">
+                        </div>
+                        <div class="form-group row justify-content-md-center">
+                            <label for="days">Seleccione los Días a Entrenar</label>
+                            <input type="text" id="days" name="days" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Seleccione el precio del curso</label>
+                            <input class="price form-control" id="price" type="number">
+                        </div>
+                        <div class="form-group">
+                            <input id="emailformunic" type="hidden">
+                        </div>
+                        <table id="tableschedule_coach" class="table table-striped custab">
+                            <thead>
+
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Genero</th>
+                                    <th>Rol</th>
+                                    <th>Correo</th>
+                                    <th>Adicionar en el Horario</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="row justify-content-md-center">
+                            <input type="submit" value="Crear Horario" class="btn btn-primary col-8 " style="background-color: black;">
+                        </div>
+                </form>
+            </div>
+
+            <div id="scheduleplayer " style="display: none; ">
+                <form>
+                    <fieldset>
+                        <legend class="text-center header text-white ">Formulario Ingreso de Horarios Jugadores
+                        </legend>
+                        <div class="form-group ">
+                            <select class="custom-select ">
+                                    <option selected>Por favor seleccione un aplicativo</option>
+                                    <option value="1 ">One</option>
+                                    <option value="2 ">Two</option>
+                                    <option value="3 ">Three</option>
+                                  </select>
+                        </div>
+                        <div class="form-group ">
+                            <label for="formGroupExampleInput ">Example label</label>
+                            <input type="text " class="form-control " id="formGroupExampleInput " placeholder="Example input ">
+                        </div>
+                        <div class="form-group ">
+                            <label for="formGroupExampleInput2 ">Another label</label>
+                            <input type="text " class="form-control " id="formGroupExampleInput2 " placeholder="Another input ">
+                        </div>
+
+                        <table id="tableschedule_player " class="table table-striped custab ">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Genero</th>
+                                    <th>Rol</th>
+                                    <th class="text-center ">Adicionar en el Horario</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+
+        </main>
+
+
+    </div>
+
+
+    <!--  -------------------------------------------------------------->
+    <div id="popup_content_wrap " style='display:none'>
+        <div id="popup_content ">
+            <center>
+                <h1 class="titulo_popup ">Bienvenido Administrador</h1>
+                <hr style="color: white; ">
+                <hr>
+                <ul style="justify-content: center;text-align: center; ">
+                    <li class="item_paragraph ">
+                        <p class="paragraph ">Gestión de Horarios</p>
+                    </li>
+                    <li class="item_paragraph ">
+                        <p class="paragraph ">Gestion de Usuario</p>
+                    </li>
+                    <li class="item_paragraph ">
+                        <p class=" paragraph ">Registro de Compra</p>
+                    </li>
+                </ul>
+
+                <input style="background-color: white;border: white;color: black; " type="submit " name="submit " value="Continuar " class="btn btn-primary " onClick="popup_content( 'hide_popup') " />
+            </center>
+        </div>
+    </div>
+    
+    
+    
+    
+</body>
+
+</html>

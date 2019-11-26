@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball</title> <!TITULO DE LA PAGINA> 
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/Estilos.css">
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet"> <! RECURSOS >
+    
+    <link href="./css/Registro.css" rel="stylesheet" />
+    <link href="./lib/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/animate.css" />
+    <link rel="stylesheet" href="./css/icomoon.css" />
+    <script src="js/validar.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link href="https://file.myfontastic.com/ceV42FfhSkmnKgZWBYzDpU/icons.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="logo-container column column--50">
+                <h1 class="logo"> Champions Béisbol Club </h1>  <! TITULO PRINCIPAL>
+            </div>
+            <div class="main-header__contactInfo column column--50">
+                <p class="main-header__contactInfo__Phone">
+                    <span class="icon-phone"> 318-221-9490</span> <!AGREGAMOS ICONO>
+                </p>
+                <p class="main-header__contactInfo__Address">
+                    <span class="icon-map"> Dg 82g #75-29 - Colombia, Bogota D.C </span> <!AGREGAMOS ICONO>
+                </p> <!PARRAFO>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container container--flex">
+            <span class="icon-menu" id="btnmenu"></span> <!AGREGAMOS ICONO>
+             <ul class="menu" id="menu"> <!CONTENIDO DEL MENU>
+                <li class="menu__item"><a href="/player" class="menu__link ">Inicio</a></li>
+                <li class="menu__item"><a href="/pay" class="menu__link">Pago</a></li> 
+            </ul>
+            <div class="form-group">
+                            <div class="col-md-12 text-center">
+                              <button id="cerrarsesion" onclick="location.href='/login'" class="btn btn-primary btn-lg" name="cerrarsesion">cerrar sesion</button>
+                            </div>
+                        </div>
+       </div>
+    </nav>
+    
+    <section class="banner">
+        <img src="img/jugadorPrincipal.jpg" alt="" class="banner__img">
+        <div class="banner__content">Regresa al campo!! </div>
+    </section>
+    
+    <main class="main">
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="css/Estilos.css" />
+
+
+        <div class="row container">
+            <div class="col-md-10">
+                <div class="well well-sm">
+                    <form name="Formulario" action="/player-schedule" class="form-horizontal"  onsubmit="return validar();">
+                        <fieldset>
+                            
+                             <div class="container listcustomers" id="customers" >
+                                <div class="row col-md-6 col-md-offset-2 custyle">
+                                    <table id="tablecurso" class="table table-striped custab">
+                                        <thead>
+
+                                            <tr>
+                                                <th>Fecha Inicio</th>
+                                                <th>Fecha Fin</th>
+                                                <th>Hora Inicio</th>
+                                                <th>Hora Final</th>
+                                                <th>Dias</th>
+                                                <th>Entrenador</th>
+                                                <th>Precio</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                              
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            
+                            <div class="form-group ">
+                                <div class="col-md-12 text-center ">
+                                    <button id="cursos" type="submit " class="cursos" name="btncurso">Actualizar</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <div class="col-md-12 text-center ">
+                                    <button id="botoninicio " type="submit " class="btn btn-primary btn-lg " name="btnResultado ">Guardar</button>
+                                   
+                                </div>
+                            </div>
+                            
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </main>
+    <footer class="main-footer">
+            <div class="container container--flex">
+                <div class="colum column--33">
+                    <h2 class="column__title">¿Porque debes vincularte con nosotros ?</h2>
+                    <p class="column__txt">Esta academia busca formar lideres en este deportes con el fin de apoyar a los equipos a crecer y ganar reconocimiento.</p>
+                </div>
+                <div class="colum column--33">
+                    <h2 class="column__title">Contactanos</h2>
+                    <p class="column__txt">Direccion: Dg 82g #75-29</p>
+                    <p class="column__txt">Telefono: 3182219490</p>
+                    <p class="column__txt">Correo: jruedar1@ucentral.edu.co</p>
+                </div>
+                <div class="colum column--33">
+                    <h2 class="column__title">Siguenos en nuestras redes</h2>
+                    <p class="column__txt"><a class="icon-facebook"> Siguenos en Facebook</a></p>
+                    <p class="column__txt"><a class="icon-twitter"> Siguenos en Twitter</a></p>
+                    <p class="column__txt"><a class="icon-instagram"> Siguenos en Instagram</a></p>
+                </div>
+                <p class="copy"> © 2019 Academia de Baseball | Todos los derechos reservados</p>
+            </div>
+        </footer>
+        <script src="js/menu.js"></script> <!LEE EL SCRIPT QUE SE REALIZO Y SU UBICACION>
+        
+        
+        <script>
+        $(document).ready(() => {
+
+            $('#Formulario').click(() => {
+                $.ajax({
+                    url: '/player-schedule',
+                    data: "",
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var countrole = 0;
+                        for (var i = 0; i < data.json.length; i++) {
+                            var datarole = data.json[i].role;
+                            if (datarole == "Jugador") {
+                                countrole++;
+                                $("#tablecurso").append("<tr>" + "<td>" + data.json[i].start_date + "</td>" + "<td>" + data.json[i].end_date + "</td>" + "<td>" + data.json[i].start_hour + "</td>" + "<td>" + data.json[i].end_hour + "</td>" + "<td>"+ data.json[i].days + "</td>"+ "<td>" + data.json[i].id_teacher + "</td>" +"<td>" +data.json[i].price+ "</td>"+ "</tr>");
+                            }
+                        }
+                        var Table = document.getElementById("tablecurso");
+                        var tablerow = Table.getElementsByTagName('tr');
+                        var rowcount = tablerow.length;
+                        var mensaje = document.getElementById("inbox");
+                        mensaje.innerHTML = "Cantidad de Cursos" + " " + countrole;
+                        if ((rowcount - 1) > i) {
+                            mensaje.innerHTML = "";
+                            console.log(rowcount);
+                            console.log("i", i);
+                            Table.innerHTML = " <thead><tr><th>Fecha Inicio</th> <th>Fecha Fin</th> <th>Hora Inicio</th> <th>Hora Final</th> <th>Dias</th> <th>Entrenador</th> <th>Precio</th></tr> </thead>";
+                        }
+                    }
+
+
+
+                });
+            });
+        });
+            
+            
+        </script>
+        
+        
+        
+        
+        
+        
+        
+</body>
+</html>
